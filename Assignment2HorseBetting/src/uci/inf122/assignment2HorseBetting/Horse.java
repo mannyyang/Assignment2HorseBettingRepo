@@ -4,11 +4,11 @@ import java.util.HashMap;
 
 public class Horse 
 {
-	private int horseNumber;
+	private String horseNumber;
 	private double totalAmtBetHorse;
 	private HashMap<Integer, Ticket> tickets;
 	
-	public Horse(int horseNumber)
+	public Horse(String horseNumber)
 	{
 		this.horseNumber = horseNumber;
 	}

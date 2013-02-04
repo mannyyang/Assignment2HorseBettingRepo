@@ -8,8 +8,9 @@
 package inf122.horses.console.commands;
 
 import inf122.horses.console.results.CommandResult;
-import inf122.horses.console.results.UnimplementedCommandResult;
+import inf122.horses.console.results.RaceCommandResult;
 import inf122.horses.console.state.RacetrackState;
+
 import java.util.Set;
 
 
@@ -25,7 +26,8 @@ public class RaceCommand implements Command
 	public CommandResult execute(RacetrackState state)
 	{
 		// Inf122TBD: Return an actual result
-		return new UnimplementedCommandResult();
+		state.addRace(raceNumber, horseNumbers);
+		return new RaceCommandResult(raceNumber, horseNumbers);
 	}
 	
 	

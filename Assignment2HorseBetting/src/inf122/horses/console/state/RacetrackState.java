@@ -7,6 +7,8 @@
 // to run the console-mode user interface.
 
 package inf122.horses.console.state;
+import java.util.Set;
+
 import uci.inf122.assignment2HorseBetting.Racetrack;
 
 
@@ -22,4 +24,8 @@ public class RacetrackState
 		rt = new Racetrack();
 	}
 	
+	public void addRace(int raceID, Set<String> horses)
+	{
+		rt.addRace(raceID, horses);
+	}
 }

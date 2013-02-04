@@ -21,4 +21,9 @@ public class EmptyRacetrackStateFactory implements RacetrackStateFactory
 		
 		return rts;
 	}
+	
+	public RacetrackState getRacetrackState()
+	{
+		return rts;
+	}
 }
