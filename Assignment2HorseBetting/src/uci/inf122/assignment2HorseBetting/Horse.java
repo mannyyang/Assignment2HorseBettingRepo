@@ -12,5 +12,10 @@ public class Horse
 	{
 		this.horseNumber = horseNumber;
 	}
+	
+	public String getHorseNumber()
+	{
+		return horseNumber;
+	}
 
 }
