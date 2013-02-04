@@ -44,9 +44,9 @@ public class RacetrackState
 		return rt.getTakeAmount();
 	}
 	
-	public void setPostTimeOn(int raceID)
+	public void setPostTimeOn(int raceID, boolean post)
 	{
-		rt.getRace(raceID).setPostTimeOn();
+		rt.getRace(raceID).setPostTimeOn(post);
 	}
 	
 	public boolean getPostTime(int raceID)

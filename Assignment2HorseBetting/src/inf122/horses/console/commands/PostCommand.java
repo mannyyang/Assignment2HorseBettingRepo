@@ -25,7 +25,7 @@ public class PostCommand implements Command
 		// Inf122TBD: Return an actual result
 		if (state.doesRaceExist(raceNumber))
 		{
-			state.getRace(raceNumber).setPostTimeOn();
+			state.setPostTimeOn(raceNumber, true);
 			return new PostCommandResult(raceNumber, state);
 		}
 		else

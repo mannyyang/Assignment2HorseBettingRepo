@@ -72,9 +72,9 @@ public class Race
 		return isPostTime;
 	}
 	
-	public void setPostTimeOn()
+	public void setPostTimeOn(boolean post)
 	{
-		isPostTime = true;
+		isPostTime = post;
 	}
 	
 	public boolean doesHorseExist(String horseID)
