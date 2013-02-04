@@ -1,5 +1,7 @@
 package uci.inf122.assignment2HorseBetting;
 
-public class Race {
+public class Race 
+{
+	
 
 }
