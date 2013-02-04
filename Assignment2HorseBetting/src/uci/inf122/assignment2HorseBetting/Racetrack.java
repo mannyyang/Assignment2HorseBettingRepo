@@ -18,11 +18,16 @@ public class Racetrack
 		return tracks;
 	}
 	
-	public void addRace(int raceID, Set<String> horses)
+	public void addRace(Race race)
 	{
-		Race race = new Race(raceID, horses);
-		tracks.put(raceID, race);
+		tracks.put(race.getRaceID(), race);
 	}
+	
+//	public void addRace(int raceID, Set<String> horses)
+//	{
+//		Race race = new Race(raceID, horses);
+//		tracks.put(raceID, race);
+//	}
 	
 	public void setTakeAmount(double takeAmount)
 	{

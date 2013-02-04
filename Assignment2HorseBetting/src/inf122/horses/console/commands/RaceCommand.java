@@ -13,6 +13,8 @@ import inf122.horses.console.state.RacetrackState;
 
 import java.util.Set;
 
+import uci.inf122.assignment2HorseBetting.Race;
+
 
 public class RaceCommand implements Command
 {
@@ -26,8 +28,8 @@ public class RaceCommand implements Command
 	public CommandResult execute(RacetrackState state)
 	{
 		// Inf122TBD: Return an actual result
-		state.addRace(raceNumber, horseNumbers);
-		return new RaceCommandResult(raceNumber, horseNumbers);
+		state.addRace(new Race(raceNumber, horseNumbers));
+		return new RaceCommandResult(raceNumber, state);
 	}
 	
 	
