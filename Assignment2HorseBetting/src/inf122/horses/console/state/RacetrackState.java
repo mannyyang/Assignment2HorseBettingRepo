@@ -7,6 +7,7 @@
 // to run the console-mode user interface.
 
 package inf122.horses.console.state;
+import uci.inf122.assignment2HorseBetting.Racetrack;
 
 
 public class RacetrackState
@@ -14,4 +15,11 @@ public class RacetrackState
 	// Inf122TBD: This needs to be filled in with whatever parts of your
 	// engine you will require in order to track the overall state of the
 	// racetrack from one command to the next
+	private Racetrack rt;
+	
+	public RacetrackState()
+	{
+		rt = new Racetrack();
+	}
+	
 }

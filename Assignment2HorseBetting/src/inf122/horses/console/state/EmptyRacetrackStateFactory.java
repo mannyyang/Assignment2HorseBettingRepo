@@ -10,11 +10,15 @@ package inf122.horses.console.state;
 
 public class EmptyRacetrackStateFactory implements RacetrackStateFactory
 {
+	private RacetrackState rts;
+	
 	public RacetrackState create()
 	{
 		// Inf122TBD: You will need to implement this method to create a single
 		// object that holds all of the state of the racetrack.
 		
-		return null;
+		rts = new RacetrackState();
+		
+		return rts;
 	}
 }
