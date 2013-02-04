@@ -18,9 +18,9 @@ public class ResultsCommandResult implements CommandResult
 	public List<String> getConsoleOutput() 
 	{
 		String s = "For Race #" + race.getRaceID() + 
-				", first place is horse #: " + race.getFirstPlace() +
-				", second place is horse #: "  + race.getSecondPlace() +
-				", third place is horse #: " + race.getThirdPlace();
+				", first place is horse #: " + race.getFirstPlace().getHorseNumber() +
+				", second place is horse #: "  + race.getSecondPlace().getHorseNumber() +
+				", third place is horse #: " + race.getThirdPlace().getHorseNumber();
 				
 		return Arrays.asList(s);
 	}
