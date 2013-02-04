@@ -1,5 +1,16 @@
 package uci.inf122.assignment2HorseBetting;
 
-public class Horse {
+import java.util.HashMap;
+
+public class Horse 
+{
+	private int horseNumber;
+	private double totalAmtBetHorse;
+	private HashMap<Integer, Ticket> tickets;
+	
+	public Horse(int horseNumber)
+	{
+		this.horseNumber = horseNumber;
+	}
 
 }
