@@ -1,0 +1,33 @@
+// PoolCommand.java
+//
+// Informatics 122 Winter 2013
+// Project #2: Who's Gonna Ride Your Wild Horses? (Implementation)
+//
+// Implements the POOL command
+
+package inf122.horses.console.commands;
+
+import inf122.horses.console.results.CommandResult;
+import inf122.horses.console.results.UnimplementedCommandResult;
+import inf122.horses.console.state.RacetrackState;
+
+
+public class PoolCommand implements Command
+{
+	public PoolCommand(BetType betType, int raceNumber)
+	{
+		this.betType = betType;
+		this.raceNumber = raceNumber;
+	}
+	
+	
+	public CommandResult execute(RacetrackState state)
+	{
+		// Inf122TBD: Return an actual result
+		return new UnimplementedCommandResult();
+	}
+	
+	
+	private BetType betType;
+	private int raceNumber;
+}
