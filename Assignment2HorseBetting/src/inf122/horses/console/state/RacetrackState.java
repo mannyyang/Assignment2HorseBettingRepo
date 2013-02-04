@@ -39,4 +39,14 @@ public class RacetrackState
 //	{
 //		rt.addRace(raceID, horses);
 //	}
+	
+	public void setTakeAmount(double takeAmount)
+	{
+		rt.setTakeAmount(takeAmount);
+	}
+	
+	public double getTakeAmount()
+	{
+		return rt.getTakeAmount();
+	}
 }

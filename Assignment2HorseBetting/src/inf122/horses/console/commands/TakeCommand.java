@@ -8,7 +8,7 @@
 package inf122.horses.console.commands;
 
 import inf122.horses.console.results.CommandResult;
-import inf122.horses.console.results.UnimplementedCommandResult;
+import inf122.horses.console.results.TakeCommandResult;
 import inf122.horses.console.state.RacetrackState;
 
 
@@ -28,7 +28,8 @@ public class TakeCommand implements Command
 	public CommandResult execute(RacetrackState state)
 	{
 		// Inf122TBD: Return an actual result
-		return new UnimplementedCommandResult();
+		state.setTakeAmount(takePercentage);
+		return new TakeCommandResult(state);
 	}
 	
 	

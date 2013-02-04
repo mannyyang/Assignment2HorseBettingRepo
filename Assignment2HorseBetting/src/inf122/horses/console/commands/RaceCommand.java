@@ -24,14 +24,13 @@ public class RaceCommand implements Command
 		this.horseNumbers = horseNumbers;
 	}
 	
-	
 	public CommandResult execute(RacetrackState state)
 	{
 		// Inf122TBD: Return an actual result
+		// takes the current racetrack state and adds a new race with given raceID and set of horses.
 		state.addRace(new Race(raceNumber, horseNumbers));
 		return new RaceCommandResult(raceNumber, state);
 	}
-	
 	
 	private int raceNumber;
 	private Set<String> horseNumbers;

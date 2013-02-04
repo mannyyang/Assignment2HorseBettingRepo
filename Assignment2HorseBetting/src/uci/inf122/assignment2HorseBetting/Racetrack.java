@@ -1,7 +1,6 @@
 package uci.inf122.assignment2HorseBetting;
 
 import java.util.HashMap;
-import java.util.Set;
 
 public class Racetrack 
 {
@@ -31,7 +30,7 @@ public class Racetrack
 	
 	public void setTakeAmount(double takeAmount)
 	{
-		this.takeAmount = takeAmount;
+		this.takeAmount = takeAmount/100;
 	}
 	
 	public double getTakeAmount()
