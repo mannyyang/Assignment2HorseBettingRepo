@@ -10,6 +10,7 @@ package inf122.horses.console.commands;
 import inf122.horses.console.results.CommandResult;
 import inf122.horses.console.results.NoHorseFoundCommandResult;
 import inf122.horses.console.results.NoRaceFoundCommandResult;
+import inf122.horses.console.results.NotPostTimeCommandResult;
 import inf122.horses.console.results.ResultsCommandResult;
 import inf122.horses.console.state.RacetrackState;
 import uci.inf122.assignment2HorseBetting.Race;
@@ -18,34 +19,40 @@ import uci.inf122.assignment2HorseBetting.Race;
 public class ResultsCommand implements Command
 {
 	public ResultsCommand(
-		int raceNumber, String firstHorse,
-		String secondHorse, String thirdHorse)
+			int raceNumber, String firstHorse,
+			String secondHorse, String thirdHorse)
 	{
 		this.raceNumber = raceNumber;
 		this.firstHorse = firstHorse;
 		this.secondHorse = secondHorse;
 		this.thirdHorse = thirdHorse;
 	}
-	
-	
+
+
 	public CommandResult execute(RacetrackState state)
 	{
 		// Inf122TBD: Return an actual result
 		if (state.doesRaceExist(raceNumber))
 		{
 			Race race = state.getRace(raceNumber);
-			
-			if (race.doesHorseExist(firstHorse) && race.doesHorseExist(secondHorse) && race.doesHorseExist(thirdHorse))
+			if (race.getPostTime())
 			{
-				race.setFirstPlace(race.getHorse(firstHorse));
-				race.setSecondPlace(race.getHorse(secondHorse));
-				race.setThirdPlace(race.getHorse(thirdHorse));
-				
-				return new ResultsCommandResult(race);
+				if (race.doesHorseExist(firstHorse) && race.doesHorseExist(secondHorse) && race.doesHorseExist(thirdHorse))
+				{
+					race.setFirstPlace(race.getHorse(firstHorse));
+					race.setSecondPlace(race.getHorse(secondHorse));
+					race.setThirdPlace(race.getHorse(thirdHorse));
+
+					return new ResultsCommandResult(race);
+				}
+				else
+				{
+					return new NoHorseFoundCommandResult(raceNumber);
+				}
 			}
 			else
 			{
-				return new NoHorseFoundCommandResult(raceNumber);
+				return new NotPostTimeCommandResult(raceNumber);
 			}
 		}
 		else
@@ -53,8 +60,7 @@ public class ResultsCommand implements Command
 			return new NoRaceFoundCommandResult(raceNumber);
 		}
 	}
-	
-	
+
 	private int raceNumber;
 	private String firstHorse;
 	private String secondHorse;
