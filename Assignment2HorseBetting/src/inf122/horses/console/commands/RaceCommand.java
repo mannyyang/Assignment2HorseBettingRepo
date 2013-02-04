@@ -9,6 +9,7 @@ package inf122.horses.console.commands;
 
 import inf122.horses.console.results.CommandResult;
 import inf122.horses.console.results.RaceCommandResult;
+import inf122.horses.console.results.RaceExistsCommandResult;
 import inf122.horses.console.state.RacetrackState;
 
 import java.util.Set;
@@ -23,15 +24,22 @@ public class RaceCommand implements Command
 		this.raceNumber = raceNumber;
 		this.horseNumbers = horseNumbers;
 	}
-	
+
 	public CommandResult execute(RacetrackState state)
 	{
 		// Inf122TBD: Return an actual result
 		// takes the current racetrack state and adds a new race with given raceID and set of horses.
-		state.addRace(new Race(raceNumber, horseNumbers));
-		return new RaceCommandResult(raceNumber, state);
+		if (state.doesRaceExist(raceNumber))
+		{
+			return new RaceExistsCommandResult(raceNumber);
+		}
+		else
+		{
+			state.addRace(new Race(raceNumber, horseNumbers));
+			return new RaceCommandResult(raceNumber, state);
+		}
 	}
-	
+
 	private int raceNumber;
 	private Set<String> horseNumbers;
 }
