@@ -8,6 +8,7 @@
 package inf122.horses.console.commands;
 
 import inf122.horses.console.results.CommandResult;
+import inf122.horses.console.results.NotEnoughHorsesCommandResult;
 import inf122.horses.console.results.RaceCommandResult;
 import inf122.horses.console.results.RaceExistsCommandResult;
 import inf122.horses.console.state.RacetrackState;
@@ -35,8 +36,15 @@ public class RaceCommand implements Command
 		}
 		else
 		{
-			state.addRace(new Race(raceNumber, horseNumbers));
-			return new RaceCommandResult(raceNumber, state);
+			if (horseNumbers.size() < 3)
+			{
+				return new NotEnoughHorsesCommandResult();
+			}
+			else
+			{
+				state.addRace(new Race(raceNumber, horseNumbers));
+				return new RaceCommandResult(raceNumber, state);
+			}
 		}
 	}
 
