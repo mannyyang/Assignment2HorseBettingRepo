@@ -8,7 +8,7 @@
 package inf122.horses.console.commands;
 
 import inf122.horses.console.results.CommandResult;
-import inf122.horses.console.results.UnimplementedCommandResult;
+import inf122.horses.console.results.PostCommandResult;
 import inf122.horses.console.state.RacetrackState;
 
 
@@ -19,13 +19,11 @@ public class PostCommand implements Command
 		this.raceNumber = raceNumber;
 	}
 	
-	
 	public CommandResult execute(RacetrackState state)
 	{
 		// Inf122TBD: Return an actual result
-		return new UnimplementedCommandResult();
+		return new PostCommandResult(raceNumber, state);
 	}
-	
 	
 	private int raceNumber;
 }

@@ -25,7 +25,6 @@ public class TakeCommandResult implements CommandResult
 	@Override
 	public boolean stopConsole() 
 	{
-		// TODO Auto-generated method stub
 		return false;
 	}
 }

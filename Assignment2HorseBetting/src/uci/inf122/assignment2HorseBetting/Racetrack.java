@@ -4,29 +4,28 @@ import java.util.HashMap;
 
 public class Racetrack 
 {
-	private HashMap<Integer, Race> tracks;
+	private HashMap<Integer, Race> races;
 	private double takeAmount = 0.00;
 
 	public Racetrack()
 	{
-		tracks = new HashMap<Integer, Race>();
+		races = new HashMap<Integer, Race>();
 	}
 	
 	public HashMap<Integer, Race> getRaces()
 	{
-		return tracks;
+		return races;
 	}
 	
 	public void addRace(Race race)
 	{
-		tracks.put(race.getRaceID(), race);
+		races.put(race.getRaceID(), race);
 	}
 	
-//	public void addRace(int raceID, Set<String> horses)
-//	{
-//		Race race = new Race(raceID, horses);
-//		tracks.put(raceID, race);
-//	}
+	public Race getRace(int raceID)
+	{
+		return races.get(raceID); 
+	}
 	
 	public void setTakeAmount(double takeAmount)
 	{
