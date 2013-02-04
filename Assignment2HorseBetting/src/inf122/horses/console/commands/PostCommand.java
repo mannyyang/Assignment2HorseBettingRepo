@@ -8,6 +8,7 @@
 package inf122.horses.console.commands;
 
 import inf122.horses.console.results.CommandResult;
+import inf122.horses.console.results.NoRaceFoundCommandResult;
 import inf122.horses.console.results.PostCommandResult;
 import inf122.horses.console.state.RacetrackState;
 
@@ -22,7 +23,15 @@ public class PostCommand implements Command
 	public CommandResult execute(RacetrackState state)
 	{
 		// Inf122TBD: Return an actual result
-		return new PostCommandResult(raceNumber, state);
+		if (state.doesRaceExist(raceNumber))
+		{
+			state.getRace(raceNumber).setPostTimeOn();
+			return new PostCommandResult(raceNumber, state);
+		}
+		else
+		{
+			return new NoRaceFoundCommandResult(raceNumber);
+		}
 	}
 	
 	private int raceNumber;

@@ -53,4 +53,9 @@ public class RacetrackState
 	{
 		return rt.getRace(raceID).getPostTime();
 	}
+	
+	public boolean doesRaceExist(int raceID)
+	{
+		return rt.doesRaceExist(raceID);
+	}
 }
