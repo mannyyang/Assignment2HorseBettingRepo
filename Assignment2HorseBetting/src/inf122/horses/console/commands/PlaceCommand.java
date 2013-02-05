@@ -50,12 +50,12 @@ public class PlaceCommand extends SingleHorseBetCommand
 			}
 			else
 			{
-				String str = "";
+				String str = "\n";
 				
 				for (String next : horses)
 				{
 					int ticketID = state.placeBet(race, next, BetType.PLACE, betAmount);
-					str = "Ticket ID#" + ticketID + ": Horse #" + next + " - Total Amount: $" + betAmount;
+					str = str + "Ticket ID#" + ticketID + ": Horse #" + next + " - Total Amount: $" + betAmount;
 					str += "\n";
 				}
 				return new PlaceBetPlacedCommandResult(raceID, horses, betAmount, str);

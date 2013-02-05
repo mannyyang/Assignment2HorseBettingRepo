@@ -52,12 +52,12 @@ public class WinCommand extends SingleHorseBetCommand
 			}
 			else
 			{
-				String str = "";
+				String str = "\n";
 				
 				for (String next : horses)
 				{
 					int ticketID = state.placeBet(race, next, BetType.WIN, betAmount);
-					str = "Ticket ID#" + ticketID + ": Horse #" + next + " - Total Amount: $" + betAmount;
+					str = str + "Ticket ID#" + ticketID + ": Horse #" + next + " - Total Amount: $" + betAmount;
 					str += "\n";
 				}
 				return new WinBetPlacedCommandResult(raceID, horses, betAmount, str);
