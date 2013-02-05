@@ -1,5 +1,8 @@
 package uci.inf122.assignment2HorseBetting;
 
+import inf122.horses.console.commands.BetType;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -14,12 +17,20 @@ public class Race
 	private Horse secondHorse;
 	private Horse thirdHorse;
 	
+	private ArrayList<Ticket> winPool;
+	private ArrayList<Ticket> showPool;
+	private ArrayList<Ticket> placePool;
+	
 	public Race(int raceID, Set<String> horses)
 	{
 		this.raceID = raceID;
 		this.horses = horses;
 		horsesMap = new HashMap<String, Horse>();
 		isPostTime = false;
+		
+		winPool = new ArrayList<Ticket>();
+		showPool =  new ArrayList<Ticket>();
+		placePool = new ArrayList<Ticket>();
 		
 		for (String next : horses)
 		{
@@ -94,4 +105,23 @@ public class Race
 		return horsesMap.get(horseID);
 	}
 
+	public void placeTicketInPool(Ticket ticket)
+	{
+		if (ticket.getBetType().equals(BetType.WIN))
+		{
+			winPool.add(ticket);
+		}
+		else if (ticket.getBetType().equals(BetType.SHOW))
+		{
+			showPool.add(ticket);
+		}
+		else if (ticket.getBetType().equals(BetType.PLACE))
+		{
+			placePool.add(ticket);
+		}
+		else
+		{
+			System.err.print("ticket not associated with any pool type");
+		}
+	}
 }
