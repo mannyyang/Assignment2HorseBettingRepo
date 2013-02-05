@@ -8,6 +8,7 @@
 
 package inf122.horses.console.state;
 
+import inf122.horses.console.commands.BetType;
 import uci.inf122.assignment2HorseBetting.Race;
 import uci.inf122.assignment2HorseBetting.Racetrack;
 
@@ -57,5 +58,10 @@ public class RacetrackState
 	public boolean doesRaceExist(int raceID)
 	{
 		return rt.doesRaceExist(raceID);
+	}
+	
+	public void placeBet(Race race, String horseNumber, BetType betType, int betAmount)
+	{
+		rt.placeBet(race, horseNumber, betType, betAmount);
 	}
 }

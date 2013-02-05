@@ -13,17 +13,17 @@ import java.util.Set;
 
 public abstract class SingleHorseBetCommand implements Command
 {
-	public SingleHorseBetCommand(int horseNumber, int amountPerHorse, Set<String> horseNumbers)
+	public SingleHorseBetCommand(int raceNumber, int amountPerHorse, Set<String> horseNumbers)
 	{
-		this.horseNumber = horseNumber;
+		this.raceNumber = raceNumber;
 		this.amountPerHorse = amountPerHorse;
 		this.horseNumbers = horseNumbers;
 	}
 	
 	
-	protected int getHorseNumber()
+	protected int getRaceNumber()
 	{
-		return horseNumber;
+		return raceNumber;
 	}
 	
 	
@@ -39,7 +39,7 @@ public abstract class SingleHorseBetCommand implements Command
 	}
 	
 	
-	private int horseNumber;
+	private int raceNumber;
 	private int amountPerHorse;
 	private Set<String> horseNumbers;
 }

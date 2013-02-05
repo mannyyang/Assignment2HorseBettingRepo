@@ -8,22 +8,61 @@
 package inf122.horses.console.commands;
 
 import inf122.horses.console.results.CommandResult;
+import inf122.horses.console.results.NoHorseFoundCommandResult;
+import inf122.horses.console.results.NoRaceFoundCommandResult;
+import inf122.horses.console.results.ReachedPostTimeCommandResult;
 import inf122.horses.console.results.UnimplementedCommandResult;
+import inf122.horses.console.results.WinBetPlacedCommandResult;
 import inf122.horses.console.state.RacetrackState;
+
 import java.util.Set;
+
+import uci.inf122.assignment2HorseBetting.Race;
 
 
 public class WinCommand extends SingleHorseBetCommand
 {
-	public WinCommand(int horseNumber, int amountPerHorse, Set<String> horseNumbers)
+	public WinCommand(int raceNumber, int amountPerHorse, Set<String> horseNumbers)
 	{
-		super(horseNumber, amountPerHorse, horseNumbers);
+		super(raceNumber, amountPerHorse, horseNumbers);
 	}
 	
 	
 	public CommandResult execute(RacetrackState state)
 	{
+		int raceID = getRaceNumber();
+		int betAmount = getAmountPerHorse();
+		Set<String> horses = getHorseNumbers();
+		Race race = state.getRace(raceID);
+		
 		// Inf122TBD: Return an actual result
-		return new UnimplementedCommandResult();
+		if (state.doesRaceExist(raceID))
+		{
+			for (String next : horses)
+			{
+				if (!race.doesHorseExist(next))
+				{
+					return new NoHorseFoundCommandResult(raceID);
+				}
+			}
+			
+			if (race.getPostTime())
+			{
+				return new ReachedPostTimeCommandResult(raceID);
+			}
+			else
+			{
+				for (String next : horses)
+				{
+					state.placeBet(race, next, BetType.WIN, betAmount);
+				}
+				return new WinBetPlacedCommandResult(raceID, horses, betAmount);
+			}
+		}
+		else
+			
+		{
+			return new NoRaceFoundCommandResult(getRaceNumber());
+		}
 	}
 }

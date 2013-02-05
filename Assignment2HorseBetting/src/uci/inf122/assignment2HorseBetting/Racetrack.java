@@ -1,11 +1,14 @@
 package uci.inf122.assignment2HorseBetting;
 
+import inf122.horses.console.commands.BetType;
+
 import java.util.HashMap;
 
 public class Racetrack 
 {
 	private HashMap<Integer, Race> races;
 	private double takeAmount = 0.00;
+	private int ticketNumber = 1;
 
 	public Racetrack()
 	{
@@ -48,4 +51,13 @@ public class Racetrack
 	{
 		return takeAmount;
 	}
+	
+	public void placeBet(Race race, String horseNumber, BetType betType, int betAmount)
+	{
+		Ticket ticket = new Ticket(ticketNumber, race, horseNumber, betType, betAmount);
+		race.getHorse(horseNumber).addTicket(ticketNumber, ticket);
+		ticketNumber++;
+	}
+	
+	
 }
