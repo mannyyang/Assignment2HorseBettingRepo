@@ -39,7 +39,7 @@ class PoolCommandParser extends BaseKnownCommandParser
 	{
 		return new String[] {
 			"POOL <betType> <race#>",
-			"    betType - The type of bet (WIN, PLACE, SHOW, EX, TRI)",
+			"    betType - The type of bet (WIN, PLACE, SHOW)",
 			"    race#   - Race # for which to view pool"
 		};
 	}

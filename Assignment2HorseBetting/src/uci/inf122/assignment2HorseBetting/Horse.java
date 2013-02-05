@@ -1,17 +1,19 @@
 package uci.inf122.assignment2HorseBetting;
 
+import inf122.horses.console.commands.BetType;
+
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 public class Horse 
 {
 	private String horseNumber;
-	private double totalAmtBetHorse;
 	private HashMap<Integer, Ticket> tickets;
 	
 	public Horse(String horseNumber)
 	{
 		tickets = new HashMap<Integer, Ticket>();
-		totalAmtBetHorse = 0.00;
 		this.horseNumber = horseNumber;
 	}
 	
@@ -22,8 +24,24 @@ public class Horse
 	
 	public void addTicket(int ticketID, Ticket ticket)
 	{
-		totalAmtBetHorse += ticket.getBetAmount();
 		tickets.put(ticketID, ticket);
+	}
+	
+	public int getTotalAmount(BetType betType)
+	{
+		int totalAmt = 0;
+		
+		Iterator<Entry<Integer, Ticket>> it = tickets.entrySet().iterator();
+		while(it.hasNext())
+		{
+			Entry<Integer, Ticket> pairs = it.next();
+			if(pairs.getValue().getBetType().equals(betType))
+			{
+				totalAmt += pairs.getValue().getBetAmount();
+			}
+		}
+		
+		return totalAmt;
 	}
 
 }

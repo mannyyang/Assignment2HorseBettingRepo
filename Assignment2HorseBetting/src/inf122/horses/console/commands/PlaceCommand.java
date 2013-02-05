@@ -26,7 +26,6 @@ public class PlaceCommand extends SingleHorseBetCommand
 		super(raceNumber, amountPerHorse, horseNumbers);
 	}
 	
-	
 	public CommandResult execute(RacetrackState state)
 	{
 		int raceID = getRaceNumber();
