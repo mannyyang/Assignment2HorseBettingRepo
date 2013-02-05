@@ -11,6 +11,7 @@ package inf122.horses.console.state;
 import inf122.horses.console.commands.BetType;
 import uci.inf122.assignment2HorseBetting.Race;
 import uci.inf122.assignment2HorseBetting.Racetrack;
+import uci.inf122.assignment2HorseBetting.Ticket;
 
 
 public class RacetrackState
@@ -60,8 +61,18 @@ public class RacetrackState
 		return rt.doesRaceExist(raceID);
 	}
 	
+	public Ticket getTicket(int ticketID)
+	{
+		return rt.getTicket(ticketID);
+	}
+	
 	public void placeBet(Race race, String horseNumber, BetType betType, int betAmount)
 	{
 		rt.placeBet(race, horseNumber, betType, betAmount);
+	}
+	
+	public void cancelBet(int ticketID)
+	{
+		rt.cancelBet(ticketID);
 	}
 }

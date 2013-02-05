@@ -20,7 +20,6 @@ class PoolCommandParser extends BaseKnownCommandParser
 		raceNumberWordParser = new RaceNumberWordParser();
 	}
 	
-
 	protected Command parseWords(String[] commandWords)
 	{
 		if (commandWords.length != 3)
@@ -34,7 +33,6 @@ class PoolCommandParser extends BaseKnownCommandParser
 		return new PoolCommand(betType, raceNumber);
 	}
 
-
 	protected String[] getFormatMessages()
 	{
 		return new String[] {
@@ -43,7 +41,6 @@ class PoolCommandParser extends BaseKnownCommandParser
 			"    race#   - Race # for which to view pool"
 		};
 	}
-	
 
 	private BetTypeWordParser betTypeWordParser;
 	private RaceNumberWordParser raceNumberWordParser;

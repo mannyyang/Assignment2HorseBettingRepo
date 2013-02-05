@@ -27,6 +27,11 @@ public class Horse
 		tickets.put(ticketID, ticket);
 	}
 	
+	public void removeTicket(int ticketID)
+	{
+		tickets.remove(ticketID);
+	}
+	
 	public int getTotalAmount(BetType betType)
 	{
 		int totalAmt = 0;

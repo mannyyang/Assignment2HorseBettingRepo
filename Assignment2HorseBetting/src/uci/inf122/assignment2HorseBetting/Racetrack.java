@@ -63,5 +63,17 @@ public class Racetrack
 		ticketNumber++;
 	}
 	
+	public void cancelBet(int ticketID)
+	{
+		Ticket ticket = tickets.get(ticketID);
+		Race race = ticket.getRace();
+		race.getHorse(ticket.getHorseNumber()).removeTicket(ticketID);
+		race.removeTicketInPool(ticket);
+		tickets.remove(ticketID);
+	}
 	
+	public Ticket getTicket(int ticketID)
+	{
+		return tickets.get(ticketID);
+	}
 }

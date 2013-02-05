@@ -8,8 +8,10 @@
 package inf122.horses.console.commands;
 
 import inf122.horses.console.results.CommandResult;
+import inf122.horses.console.results.ReachedPostTimeCommandResult;
 import inf122.horses.console.results.UnimplementedCommandResult;
 import inf122.horses.console.state.RacetrackState;
+import uci.inf122.assignment2HorseBetting.Ticket;
 
 
 public class CancelCommand implements Command
@@ -18,14 +20,24 @@ public class CancelCommand implements Command
 	{
 		this.ticketId = ticketId;
 	}
-	
-	
+
+
 	public CommandResult execute(RacetrackState state)
 	{
+		Ticket ticket = state.getTicket(ticketId);
+		
 		// Inf122TBD: Return an actual result
-		return new UnimplementedCommandResult();
+		if (ticket.getRace().getPostTime())
+		{
+			return new ReachedPostTimeCommandResult(ticket.getRace().getRaceID());
+		}
+		else
+		{
+			state.cancelBet(ticketId);
+			return new UnimplementedCommandResult();
+		}
 	}
-	
-	
+
+
 	private int ticketId;
 }

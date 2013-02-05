@@ -29,6 +29,11 @@ public class Ticket
 		return betAmount;
 	}
 	
+	public String getHorseNumber()
+	{
+		return horseNumber;
+	}
+	
 	public BetType getBetType()
 	{
 		return betType;

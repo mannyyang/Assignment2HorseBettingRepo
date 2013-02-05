@@ -124,4 +124,42 @@ public class Race
 			System.err.print("ticket not associated with any pool type");
 		}
 	}
+	
+	public void removeTicketInPool(Ticket ticket)
+	{
+		if (ticket.getBetType().equals(BetType.WIN))
+		{
+			for (int i = 0; i < winPool.size(); i++)
+			{
+				if (ticket.getTicketID() == winPool.get(i).getTicketID())
+				{
+					winPool.remove(i);
+				}
+			}
+		}
+		else if (ticket.getBetType().equals(BetType.SHOW))
+		{
+			for (int i = 0; i < showPool.size(); i++)
+			{
+				if (ticket.getTicketID() == showPool.get(i).getTicketID())
+				{
+					showPool.remove(i);
+				}
+			}
+		}
+		else if (ticket.getBetType().equals(BetType.PLACE))
+		{
+			for (int i = 0; i < placePool.size(); i++)
+			{
+				if (ticket.getTicketID() == placePool.get(i).getTicketID())
+				{
+					placePool.remove(i);
+				}
+			}
+		}
+		else
+		{
+			System.err.print("ticket not associated with any pool type");
+		}
+	}
 }
