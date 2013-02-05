@@ -10,12 +10,14 @@ public class WinBetPlacedCommandResult implements CommandResult
 	private int raceID;
 	private Set<String> horses;
 	private int betAmount;
+	private String str;
 	
-	public WinBetPlacedCommandResult(int raceID, Set<String> horses, int betAmount)
+	public WinBetPlacedCommandResult(int raceID, Set<String> horses, int betAmount, String str)
 	{
 		this.raceID = raceID;
 		this.horses = horses;
 		this.betAmount = betAmount;
+		this.str = str;
 	}
 	
 	@Override
@@ -28,6 +30,7 @@ public class WinBetPlacedCommandResult implements CommandResult
 			s = s + ", " + it.next();
 		}
 		s += "]";
+		s += str;
 		return Arrays.asList(s);
 	}
 

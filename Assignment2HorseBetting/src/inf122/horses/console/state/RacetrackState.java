@@ -66,9 +66,9 @@ public class RacetrackState
 		return rt.getTicket(ticketID);
 	}
 	
-	public void placeBet(Race race, String horseNumber, BetType betType, int betAmount)
+	public int placeBet(Race race, String horseNumber, BetType betType, int betAmount)
 	{
-		rt.placeBet(race, horseNumber, betType, betAmount);
+		return rt.placeBet(race, horseNumber, betType, betAmount);
 	}
 	
 	public void cancelBet(int ticketID)

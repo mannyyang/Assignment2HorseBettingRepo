@@ -54,13 +54,15 @@ public class Racetrack
 		return takeAmount;
 	}
 	
-	public void placeBet(Race race, String horseNumber, BetType betType, int betAmount)
+	public int placeBet(Race race, String horseNumber, BetType betType, int betAmount)
 	{
 		Ticket ticket = new Ticket(ticketNumber, race, horseNumber, betType, betAmount);
 		tickets.put(ticketNumber, ticket);
 		race.getHorse(horseNumber).addTicket(ticketNumber, ticket);
 		race.placeTicketInPool(ticket);
 		ticketNumber++;
+		
+		return ticket.getTicketID();
 	}
 	
 	public void cancelBet(int ticketID)

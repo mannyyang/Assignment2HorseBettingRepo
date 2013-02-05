@@ -50,11 +50,15 @@ public class ShowCommand extends SingleHorseBetCommand
 			}
 			else
 			{
+				String str = "";
+				
 				for (String next : horses)
 				{
-					state.placeBet(race, next, BetType.SHOW, betAmount);
+					int ticketID = state.placeBet(race, next, BetType.SHOW, betAmount);
+					str = "Ticket ID#" + ticketID + ": Horse #" + next + " - Total Amount: $" + betAmount;
+					str += "\n";
 				}
-				return new ShowBetPlacedCommandResult(raceID, horses, betAmount);
+				return new ShowBetPlacedCommandResult(raceID, horses, betAmount, str);
 			}
 		}
 		else
