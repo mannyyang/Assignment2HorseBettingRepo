@@ -7,9 +7,9 @@
 
 package inf122.horses.console.commands;
 
+import inf122.horses.console.results.CancelCommandResult;
 import inf122.horses.console.results.CommandResult;
 import inf122.horses.console.results.ReachedPostTimeCommandResult;
-import inf122.horses.console.results.UnimplementedCommandResult;
 import inf122.horses.console.state.RacetrackState;
 import uci.inf122.assignment2HorseBetting.Ticket;
 
@@ -34,7 +34,7 @@ public class CancelCommand implements Command
 		else
 		{
 			state.cancelBet(ticketId);
-			return new UnimplementedCommandResult();
+			return new CancelCommandResult(ticketId);
 		}
 	}
 
