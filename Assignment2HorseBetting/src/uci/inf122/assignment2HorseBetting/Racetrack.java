@@ -59,6 +59,7 @@ public class Racetrack
 		Ticket ticket = new Ticket(ticketNumber, race, horseNumber, betType, betAmount);
 		tickets.put(ticketNumber, ticket);
 		race.getHorse(horseNumber).addTicket(ticketNumber, ticket);
+		race.placeTicketInPool(ticket);
 		ticketNumber++;
 	}
 	

@@ -58,7 +58,6 @@ public class ShowCommand extends SingleHorseBetCommand
 			}
 		}
 		else
-			
 		{
 			return new NoRaceFoundCommandResult(getRaceNumber());
 		}
