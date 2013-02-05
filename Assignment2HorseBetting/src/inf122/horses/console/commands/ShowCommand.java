@@ -11,9 +11,9 @@ import inf122.horses.console.results.CommandResult;
 import inf122.horses.console.results.NoHorseFoundCommandResult;
 import inf122.horses.console.results.NoRaceFoundCommandResult;
 import inf122.horses.console.results.ReachedPostTimeCommandResult;
-import inf122.horses.console.results.UnimplementedCommandResult;
-import inf122.horses.console.results.WinBetPlacedCommandResult;
+import inf122.horses.console.results.ShowBetPlacedCommandResult;
 import inf122.horses.console.state.RacetrackState;
+
 import java.util.Set;
 
 import uci.inf122.assignment2HorseBetting.Race;
@@ -54,7 +54,7 @@ public class ShowCommand extends SingleHorseBetCommand
 				{
 					state.placeBet(race, next, BetType.SHOW, betAmount);
 				}
-				return new WinBetPlacedCommandResult(raceID, horses, betAmount);
+				return new ShowBetPlacedCommandResult(raceID, horses, betAmount);
 			}
 		}
 		else

@@ -5,13 +5,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-public class WinBetPlacedCommandResult implements CommandResult
+public class ShowBetPlacedCommandResult implements CommandResult
 {
 	private int raceID;
 	private Set<String> horses;
 	private int betAmount;
 	
-	public WinBetPlacedCommandResult(int raceID, Set<String> horses, int betAmount)
+	public ShowBetPlacedCommandResult(int raceID, Set<String> horses, int betAmount)
 	{
 		this.raceID = raceID;
 		this.horses = horses;
@@ -22,7 +22,7 @@ public class WinBetPlacedCommandResult implements CommandResult
 	public List<String> getConsoleOutput() 
 	{
 		Iterator<String> it = horses.iterator();
-		String s = "Race #" + raceID +  ": A Win bet for $" + betAmount + " placed on horses [" + it.next();
+		String s = "Race #" + raceID +  ": A Show bet for $" + betAmount + " placed on horses [" + it.next();
 		while(it.hasNext())
 		{
 			s = s + ", " + it.next();
@@ -37,5 +37,4 @@ public class WinBetPlacedCommandResult implements CommandResult
 		return false;
 	}
 
-	
 }
