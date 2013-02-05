@@ -7,11 +7,13 @@ import java.util.HashMap;
 public class Racetrack 
 {
 	private HashMap<Integer, Race> races;
+	private HashMap<Integer, Ticket> tickets;
 	private double takeAmount = 0.00;
 	private int ticketNumber = 1;
 
 	public Racetrack()
 	{
+		tickets = new HashMap<Integer, Ticket>();
 		races = new HashMap<Integer, Race>();
 	}
 
@@ -55,6 +57,7 @@ public class Racetrack
 	public void placeBet(Race race, String horseNumber, BetType betType, int betAmount)
 	{
 		Ticket ticket = new Ticket(ticketNumber, race, horseNumber, betType, betAmount);
+		tickets.put(ticketNumber, ticket);
 		race.getHorse(horseNumber).addTicket(ticketNumber, ticket);
 		ticketNumber++;
 	}
