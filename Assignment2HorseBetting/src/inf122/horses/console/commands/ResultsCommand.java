@@ -42,6 +42,7 @@ public class ResultsCommand implements Command
 					race.setFirstPlace(race.getHorse(firstHorse));
 					race.setSecondPlace(race.getHorse(secondHorse));
 					race.setThirdPlace(race.getHorse(thirdHorse));
+					race.setResultsShown(true);
 
 					return new ResultsCommandResult(race);
 				}

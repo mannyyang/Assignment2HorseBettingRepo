@@ -12,6 +12,7 @@ public class Race
 	private Set<String> horses;
 	private HashMap<String, Horse> horsesMap;
 	private boolean isPostTime;
+	private boolean isResultsShown;
 	
 	private Horse firstHorse;
 	private Horse secondHorse;
@@ -27,6 +28,7 @@ public class Race
 		this.horses = horses;
 		horsesMap = new HashMap<String, Horse>();
 		isPostTime = false;
+		isResultsShown = false;
 		
 		winPool = new ArrayList<Ticket>();
 		showPool =  new ArrayList<Ticket>();
@@ -86,6 +88,11 @@ public class Race
 	public void setPostTimeOn(boolean post)
 	{
 		isPostTime = post;
+	}
+	
+	public void setResultsShown(boolean shown)
+	{
+		isResultsShown = shown;
 	}
 	
 	public boolean doesHorseExist(String horseID)
