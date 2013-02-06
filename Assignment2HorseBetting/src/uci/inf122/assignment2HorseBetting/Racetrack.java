@@ -74,6 +74,11 @@ public class Racetrack
 		tickets.remove(ticketID);
 	}
 	
+	public boolean doesTicketExist(int ticketID)
+	{
+		return tickets.containsKey(ticketID);
+	}
+	
 	public Ticket getTicket(int ticketID)
 	{
 		return tickets.get(ticketID);

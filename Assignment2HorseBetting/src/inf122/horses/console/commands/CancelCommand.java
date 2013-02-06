@@ -9,6 +9,7 @@ package inf122.horses.console.commands;
 
 import inf122.horses.console.results.CancelCommandResult;
 import inf122.horses.console.results.CommandResult;
+import inf122.horses.console.results.NoTicketFoundCommandResult;
 import inf122.horses.console.results.ReachedPostTimeCommandResult;
 import inf122.horses.console.state.RacetrackState;
 import uci.inf122.assignment2HorseBetting.Ticket;
@@ -24,20 +25,26 @@ public class CancelCommand implements Command
 
 	public CommandResult execute(RacetrackState state)
 	{
-		Ticket ticket = state.getTicket(ticketId);
-		
-		// Inf122TBD: Return an actual result
-		if (ticket.getRace().getPostTime())
+		if (state.doesTicketExist(ticketId))
 		{
-			return new ReachedPostTimeCommandResult(ticket.getRace().getRaceID());
+			Ticket ticket = state.getTicket(ticketId);
+
+			// Inf122TBD: Return an actual result
+			if (ticket.getRace().getPostTime())
+			{
+				return new ReachedPostTimeCommandResult(ticket.getRace().getRaceID());
+			}
+			else
+			{
+				state.cancelBet(ticketId);
+				return new CancelCommandResult(ticketId);
+			}
 		}
 		else
 		{
-			state.cancelBet(ticketId);
-			return new CancelCommandResult(ticketId);
+			return new NoTicketFoundCommandResult(ticketId);
 		}
 	}
-
 
 	private int ticketId;
 }

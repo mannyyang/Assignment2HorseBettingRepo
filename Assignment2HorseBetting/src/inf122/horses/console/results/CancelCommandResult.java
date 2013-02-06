@@ -15,7 +15,7 @@ public class CancelCommandResult implements CommandResult
 	@Override
 	public List<String> getConsoleOutput() 
 	{
-		String s = "Ticket #" + ticketID + "has been cancelled and removed";
+		String s = "Ticket #" + ticketID + " has been cancelled and removed";
 		return Arrays.asList(s);
 	}
 

@@ -71,6 +71,11 @@ public class RacetrackState
 		return rt.placeBet(race, horseNumber, betType, betAmount);
 	}
 	
+	public boolean doesTicketExist(int ticketID)
+	{
+		return rt.doesRaceExist(ticketID);
+	}
+	
 	public void cancelBet(int ticketID)
 	{
 		rt.cancelBet(ticketID);
