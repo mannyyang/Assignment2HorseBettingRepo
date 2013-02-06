@@ -3,19 +3,19 @@ package inf122.horses.console.results;
 import java.util.Arrays;
 import java.util.List;
 
-public class NoTicketFoundCommandResult implements CommandResult
+public class ResultsNotPostedCommandResult implements CommandResult
 {
-	private int ticketID;
+	private int raceID;
 	
-	public NoTicketFoundCommandResult(int ticketID)
+	public ResultsNotPostedCommandResult(int raceID)
 	{
-		this.ticketID = ticketID;
+		this.raceID = raceID;
 	}
 
 	@Override
 	public List<String> getConsoleOutput() 
 	{
-		String s = "Ticket ID#" + ticketID + " not found in the system, please try again";
+		String s = "Results have not yet been posted for Race ID#" + raceID + ". Please try again!";
 		return Arrays.asList(s);
 	}
 
@@ -24,5 +24,6 @@ public class NoTicketFoundCommandResult implements CommandResult
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
 
 }

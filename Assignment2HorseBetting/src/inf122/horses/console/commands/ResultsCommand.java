@@ -11,6 +11,7 @@ import inf122.horses.console.results.CommandResult;
 import inf122.horses.console.results.NoHorseFoundCommandResult;
 import inf122.horses.console.results.NoRaceFoundCommandResult;
 import inf122.horses.console.results.NotPostTimeCommandResult;
+import inf122.horses.console.results.ResultsAlreadyPostedCommandResult;
 import inf122.horses.console.results.ResultsCommandResult;
 import inf122.horses.console.state.RacetrackState;
 import uci.inf122.assignment2HorseBetting.Race;
@@ -37,18 +38,25 @@ public class ResultsCommand implements Command
 			Race race = state.getRace(raceNumber);
 			if (race.getPostTime())
 			{
-				if (race.doesHorseExist(firstHorse) && race.doesHorseExist(secondHorse) && race.doesHorseExist(thirdHorse))
+				if (race.isResultsShown())
 				{
-					race.setFirstPlace(race.getHorse(firstHorse));
-					race.setSecondPlace(race.getHorse(secondHorse));
-					race.setThirdPlace(race.getHorse(thirdHorse));
-					race.setResultsShown(true);
-
-					return new ResultsCommandResult(race);
+					return new ResultsAlreadyPostedCommandResult(race.getRaceID());
 				}
 				else
 				{
-					return new NoHorseFoundCommandResult(raceNumber);
+					if (race.doesHorseExist(firstHorse) && race.doesHorseExist(secondHorse) && race.doesHorseExist(thirdHorse))
+					{
+						race.setFirstPlace(race.getHorse(firstHorse));
+						race.setSecondPlace(race.getHorse(secondHorse));
+						race.setThirdPlace(race.getHorse(thirdHorse));
+						race.setResultsShown(true);
+
+						return new ResultsCommandResult(race);
+					}
+					else
+					{
+						return new NoHorseFoundCommandResult(raceNumber);
+					}
 				}
 			}
 			else

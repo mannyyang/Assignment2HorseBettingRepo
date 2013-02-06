@@ -19,8 +19,6 @@ import uci.inf122.assignment2HorseBetting.Race;
 
 public class PoolCommand implements Command
 {
-	private int totalAmount = 0;
-
 	public PoolCommand(BetType betType, int raceNumber)
 	{
 		this.betType = betType;

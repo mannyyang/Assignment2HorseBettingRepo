@@ -73,7 +73,7 @@ public class RacetrackState
 	
 	public boolean doesTicketExist(int ticketID)
 	{
-		return rt.doesRaceExist(ticketID);
+		return rt.doesTicketExist(ticketID);
 	}
 	
 	public void cancelBet(int ticketID)

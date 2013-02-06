@@ -40,6 +40,11 @@ public class Race
 		}
 	}
 	
+	public boolean isResultsShown()
+	{
+		return isResultsShown;
+	}
+	
 	public int getRaceID()
 	{
 		return raceID;
