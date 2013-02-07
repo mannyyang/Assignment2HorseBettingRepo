@@ -16,6 +16,7 @@ public class ClaimCommandResult implements CommandResult
 	public List<String> getConsoleOutput() 
 	{
 		String s = Double.toString(winnings);
+		String string = "Congratulations, you won $" + s + "."; 				
 		return Arrays.asList(s);
 	}
 

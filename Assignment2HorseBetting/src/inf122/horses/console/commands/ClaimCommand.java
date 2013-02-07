@@ -14,6 +14,7 @@ import inf122.horses.console.results.NotPostTimeCommandResult;
 import inf122.horses.console.results.NotWinningTicketCommandResult;
 import inf122.horses.console.results.ResultsNotPostedCommandResult;
 import inf122.horses.console.results.TicketClaimedCommandResult;
+import inf122.horses.console.results.UnimplementedCommandResult;
 import inf122.horses.console.state.RacetrackState;
 
 import java.util.ArrayList;
@@ -83,6 +84,7 @@ public class ClaimCommand implements Command
 										}
 									}
 									
+									System.out.println(takeAmount/100);
 									double actualTotal = poolTotalAmount - ((takeAmount/100)*poolTotalAmount);
 									double profit = actualTotal - horseTotalAmount;
 									double dividends = profit/horseTotalAmount;
@@ -95,12 +97,12 @@ public class ClaimCommand implements Command
 									ticket.setClaimed(true);
 									return new NotWinningTicketCommandResult(ticketId);
 								}
-//							case PLACE:
-//								break;
-//							case SHOW:
-//								break;
+							case PLACE:
+								return new UnimplementedCommandResult();
+							case SHOW:
+								return new UnimplementedCommandResult();
 							default:
-								return new ClaimCommandResult(winnings);
+								return new UnimplementedCommandResult();
 							}
 						}
 						else
