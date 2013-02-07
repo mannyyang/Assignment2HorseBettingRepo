@@ -17,7 +17,7 @@ public class ClaimCommandResult implements CommandResult
 	{
 		String s = Double.toString(winnings);
 		String string = "Congratulations, you won $" + s + "."; 				
-		return Arrays.asList(s);
+		return Arrays.asList(string);
 	}
 
 	@Override
