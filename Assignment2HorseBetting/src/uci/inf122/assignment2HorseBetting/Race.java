@@ -13,15 +13,15 @@ public class Race
 	private HashMap<String, Horse> horsesMap;
 	private boolean isPostTime;
 	private boolean isResultsShown;
-	
+
 	private Horse firstHorse;
 	private Horse secondHorse;
 	private Horse thirdHorse;
-	
+
 	private ArrayList<Ticket> winPool;
 	private ArrayList<Ticket> showPool;
 	private ArrayList<Ticket> placePool;
-	
+
 	public Race(int raceID, Set<String> horses)
 	{
 		this.raceID = raceID;
@@ -29,77 +29,124 @@ public class Race
 		horsesMap = new HashMap<String, Horse>();
 		isPostTime = false;
 		isResultsShown = false;
-		
+
 		winPool = new ArrayList<Ticket>();
 		showPool =  new ArrayList<Ticket>();
 		placePool = new ArrayList<Ticket>();
-		
+
 		for (String next : horses)
 		{
 			horsesMap.put(next, new Horse(next));
 		}
 	}
-	
+
+	public ArrayList<Ticket> getWinPool()
+	{
+		return winPool;
+	}
+
+	public ArrayList<Ticket> getShowPool()
+	{
+		return showPool;
+	}
+
+	public ArrayList<Ticket> getPlacePool()
+	{
+		return placePool;
+	}
+
+	public int getTotalPoolAmount(BetType betType)
+	{
+		int totalAmount = 0;
+
+		switch (betType)
+		{
+		case WIN:
+			for (Ticket ticket : winPool)
+			{
+				totalAmount += ticket.getBetAmount();
+			}
+			break;
+		case SHOW:
+			for (Ticket ticket : showPool)
+			{
+				totalAmount += ticket.getBetAmount();
+			}
+			break;
+		case PLACE:
+			for (Ticket ticket : placePool)
+			{
+				totalAmount += ticket.getBetAmount();
+			}
+			break;
+		default:
+			System.err.println("Bet Type not found");
+			break;
+		}
+
+		return totalAmount;
+	}
+
 	public boolean isResultsShown()
 	{
 		return isResultsShown;
 	}
-	
+
 	public int getRaceID()
 	{
 		return raceID;
 	}
-	
+
 	public Horse getFirstPlace()
 	{
 		return firstHorse;
 	}
-	
+
 	public Horse getSecondPlace()
 	{
 		return secondHorse;
 	}
-	
+
 	public Horse getThirdPlace()
 	{
 		return thirdHorse;
 	}
-	
+
 	public void setFirstPlace(Horse horse)
 	{
 		firstHorse = horse;
 	}
-	
+
 	public void setSecondPlace(Horse horse)
 	{
 		secondHorse = horse;
 	}
-	
+
 	public void setThirdPlace(Horse horse)
 	{
 		thirdHorse = horse;
 	}
-	
+
 	public Set<String> getHorses()
 	{
 		return horses;
 	}
-	
+
 	public boolean getPostTime()
 	{
 		return isPostTime;
 	}
-	
+
 	public void setPostTimeOn(boolean post)
 	{
 		isPostTime = post;
 	}
-	
+
 	public void setResultsShown(boolean shown)
 	{
 		isResultsShown = shown;
 	}
-	
+
 	public boolean doesHorseExist(String horseID)
 	{
 		if (horsesMap.containsKey(horseID))
@@ -111,7 +158,7 @@ public class Race
 			return false;
 		}
 	}
-	
+
 	public Horse getHorse(String horseID)
 	{
 		return horsesMap.get(horseID);
@@ -133,10 +180,10 @@ public class Race
 		}
 		else
 		{
-			System.err.print("ticket not associated with any pool type");
+			System.err.println("ticket not associated with any pool type");
 		}
 	}
-	
+
 	public void removeTicketInPool(Ticket ticket)
 	{
 		if (ticket.getBetType().equals(BetType.WIN))
@@ -171,7 +218,7 @@ public class Race
 		}
 		else
 		{
-			System.err.print("ticket not associated with any pool type");
+			System.err.println("ticket not associated with any pool type");
 		}
 	}
 }

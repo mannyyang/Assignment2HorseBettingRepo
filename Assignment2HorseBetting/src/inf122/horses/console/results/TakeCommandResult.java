@@ -7,7 +7,7 @@ import java.util.List;
 
 public class TakeCommandResult implements CommandResult
 {
-	private double takeAmount;
+	private int takeAmount;
 	
 	public TakeCommandResult(RacetrackState rts)
 	{
@@ -17,8 +17,7 @@ public class TakeCommandResult implements CommandResult
 	@Override
 	public List<String> getConsoleOutput() 
 	{
-		String tAmount = String.format("%.2f", takeAmount);
-		String s = "Racetrack take amount percentage set at " + tAmount.substring(1) + "%";
+		String s = "Racetrack take amount percentage set at " + takeAmount + "%";
 		return Arrays.asList(s);
 	}
 

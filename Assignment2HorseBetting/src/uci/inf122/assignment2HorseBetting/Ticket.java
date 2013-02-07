@@ -9,6 +9,7 @@ public class Ticket
 	private Race race;
 	private int betAmount;
 	private BetType betType;
+	private boolean claimed;
 	
 	public Ticket(int ticketID, Race race, String horseNumber, BetType betType, int betAmount)
 	{
@@ -17,6 +18,7 @@ public class Ticket
 		this.race = race;
 		this.betAmount = betAmount;
 		this.horseNumber = horseNumber;
+		claimed = false;
 	}
 	
 	public int getTicketID()
@@ -44,5 +46,14 @@ public class Ticket
 		return race;
 	}
 	
+	public boolean isClaimed()
+	{
+		return claimed;
+	}
+	
+	public void setClaimed(boolean claimed)
+	{
+		this.claimed = claimed;
+	}
 	
 }

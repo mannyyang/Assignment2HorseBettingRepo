@@ -29,6 +29,7 @@ public class TakeCommand implements Command
 	{
 		// Inf122TBD: Return an actual result
 		state.setTakeAmount(takePercentage);
+		System.out.println(state.getTakeAmount());
 		return new TakeCommandResult(state);
 	}
 	

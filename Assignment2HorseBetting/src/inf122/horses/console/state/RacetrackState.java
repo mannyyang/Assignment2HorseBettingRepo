@@ -36,12 +36,12 @@ public class RacetrackState
 		return rt.getRace(raceID);
 	}
 	
-	public void setTakeAmount(double takeAmount)
+	public void setTakeAmount(int takeAmount)
 	{
 		rt.setTakeAmount(takeAmount);
 	}
 	
-	public double getTakeAmount()
+	public int getTakeAmount()
 	{
 		return rt.getTakeAmount();
 	}

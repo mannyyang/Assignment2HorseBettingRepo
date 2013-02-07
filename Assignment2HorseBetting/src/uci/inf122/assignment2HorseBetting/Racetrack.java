@@ -8,7 +8,7 @@ public class Racetrack
 {
 	private HashMap<Integer, Race> races;
 	private HashMap<Integer, Ticket> tickets;
-	private double takeAmount = 0.00;
+	private int takeAmount = 0;
 	private int ticketNumber = 1;
 
 	public Racetrack()
@@ -44,12 +44,12 @@ public class Racetrack
 		}
 	}
 
-	public void setTakeAmount(double takeAmount)
+	public void setTakeAmount(int takeAmount)
 	{
-		this.takeAmount = takeAmount/100;
+		this.takeAmount = takeAmount;
 	}
 
-	public double getTakeAmount()
+	public int getTakeAmount()
 	{
 		return takeAmount;
 	}
